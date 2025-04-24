@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="webApp.css/webApp.css">
+</head>
+<body>
+    <!-- WageVo Savings Calculator widget -->
+<section id="savings-widget">
+    <h2>See how much WageVo saves your team</h2>
+    <p class="explain">
+       WageVo lets employees tap their earned wages for a flat <strong>$1</strong> fee. 
+       Compared with the typical <strong>$15</strong> payday‑loan charge on $100, your team keeps more of every shift—and happier staff stick around longer.
+     </p>
+    <div id="assumptions">
+      <h4>How we calculate your savings</h4>
+      <ul>
+        <li>Flat <strong>$1</strong> WageVo fee per advance vs. <strong>$15</strong> payday‑loan fee on $100 (≈ 400 % APR).</li>
+        <li>Typical advance equals 50 % of an employee’s weekly wages (30 hrs).</li>
+        <li>Each avoided quit saves about <strong>$600</strong> in hiring costs.</li>
+        <li>Instant pay access can reduce hourly turnover by up to <strong>15 %</strong> (industry studies).</li>
+      </ul>
+    </div>
+  
+    <div class="control">
+      <label for="emp">
+        # Hourly Employees:
+        <span id="empVal">25</span>
+      </label>
+      <input type="range" id="emp" min="5" max="150" value="25" step="1">
+    </div>
+  
+    <div class="control">
+      <label for="wage">
+        Avg. Hourly Wage ($):
+        <span id="wageVal">15</span>
+      </label>
+      <input type="range" id="wage" min="10" max="25" value="15" step="1">
+    </div>
+  
+    <div class="control">
+      <label for="usage">
+        % Using WageVo:
+        <span id="usageVal">20</span>%
+      </label>
+      <input type="range" id="usage" min="0" max="60" value="20" step="1">
+    </div>
+  
+    <div class="control">
+      <label for="freq">
+        Advances / Month / User:
+        <span id="freqVal">1</span>
+      </label>
+      <input type="range" id="freq" min="0" max="3" value="1" step="1">
+    </div>
+  
+    <div id="results">
+      <div class="result">
+        <h3>Employee payday loan savings / year</h3>
+        <p id="empSave">$0</p>
+      </div>
+      <div class="result">
+        <h3>Turnover savings / year</h3>
+        <p id="turnSave">$0</p>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+  /* quick-and-dirty calculator */
+  const $ = id => document.getElementById(id);
+  
+  const PAYDAY_FEE      = 0.15;  // $15 per $100
+  const WAGEVO_FEE      = 1.00;  // per advance (tweak as needed)
+  const TURNOVER_COST   = 600;   // direct cost per quit
+  const TURNOVER_DROP   = 0.15;  // 15 % reduction
+  
+  function calc() {
+    const emp   = +$('emp').value;
+    const wage  = +$('wage').value;
+    const usage = +$('usage').value / 100;
+    const freq  = +$('freq').value;
+  
+    // assume 30 hrs/week, 50 % of weekly wages borrowed per advance
+    const advanceSize = wage * 30 * 0.5;
+    const advancesPerYear = emp * usage * freq * 12;
+  
+    const paydayCost   = advanceSize * PAYDAY_FEE;
+    const wagevoCost   = WAGEVO_FEE;
+    const empSaving    = (paydayCost - wagevoCost) * advancesPerYear;
+  
+    const quitsAvoided = emp * TURNOVER_DROP;
+    const turnSaving   = quitsAvoided * TURNOVER_COST;
+  
+    // update UI
+    $('empVal').textContent   = emp;
+    $('wageVal').textContent  = wage;
+    $('usageVal').textContent = (usage * 100).toFixed(0);
+    $('freqVal').textContent  = freq;
+  
+    $('empSave').textContent  = '$' + empSaving.toLocaleString();
+    $('turnSave').textContent = '$' + turnSaving.toLocaleString();
+  }
+  
+  document
+    .querySelectorAll('#savings-widget input[type=range]')
+    .forEach(inp => inp.addEventListener('input', calc));
+  
+  calc(); // initial paint
+  </script>
+    
+</body>
+</html>
