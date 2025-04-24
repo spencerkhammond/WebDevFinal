@@ -1,0 +1,104 @@
+.logo {
+    height: 170px;
+    width: auto;
+    margin-left: 50px;
+}
+body {
+    background-color: #ffffff12;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center; 
+}
+.list {
+    color: #000000;
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: bold;
+}
+.big-words-at-the-top {
+    color: #000000;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.medium-words-at-the-top {
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.steps-block {
+    padding: 20px;
+    margin: 30px auto;
+    width: 60%;
+    border-radius: 10px;
+}
+.video-section {
+    background-color: #d2d2d2;
+    padding: 20px;
+    margin: 50px auto;
+    width: 40%;
+    border-radius: 10px;
+}
+.integration-logos {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    width: auto;
+    background-color: transparent;
+
+}
+.tableau-block {
+    width: 70%;
+    margin: 30px auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px 20px;
+    max-height: 350px;
+    overflow: hidden;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff12;
+    text-align: center;
+}
+
+.main-header {
+    background-color: #000;
+    color: #7300A6;
+    padding: 15px 0;
+    text-align: center;
+    position: relative;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.main-header nav {
+    position: absolute;
+    right: 300px;
+    top: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.big-words-at-the-top {
+    color: #000000;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+}

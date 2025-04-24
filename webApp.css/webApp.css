@@ -1,0 +1,70 @@
+:root {
+    --accent: #7300A6; /* WageVo brand purple */
+    --card-bg: #ffffff;
+    --page-bg: #f6f8fb;
+    --radius: 12px;
+    --shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    --font: system-ui, -apple-system, Segoe UI, sans-serif;
+  }
+  
+  body {
+    background: var(--page-bg);
+    font-family: var(--font);
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  #savings-widget {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem 2.5rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  
+  #savings-widget h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  
+  .control {
+    margin-bottom: 1.5rem;
+  }
+  
+  .control label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent); /* modern browsers */
+  }
+  
+  #results {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .result h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .result p {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
